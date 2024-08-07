@@ -3,7 +3,7 @@ describe("Home Page Tests", () => {
     cy.visit("https://staging-rnm.vercel.app/home"); // Add the URL
   });
 
-  it('should ensure the #details element is not hidden after clicking the "Enter URL" button', () => {
+  it('should ensure the #tabs-:r9:--tabpanel-1 element is not hidden after clicking the "Enter URL" button', () => {
     // Click the "Enter URL" button
     cy.get("button.chakra-tabs__tab").contains("Enter URL").click();
 
