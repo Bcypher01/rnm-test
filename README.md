@@ -15,8 +15,9 @@ Before running the tests, ensure you have the following installed:
 
 1.  **Clone the Repository**
 
-    `git clone https://github.com/your-username/your-repo.git
-cd your-repo`
+        `https://github.com/Bcypher01/rnm-test.git
+
+    cd your-repo`
 
 2.  **Install Dependencies**
 
