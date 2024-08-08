@@ -57,12 +57,13 @@ describe("Home Page Tests", () => {
             .type("286299b4-56d0-416a-8e66-7776fd38a323");
 
           // Ensure the submit button is enabled, then click it
-          cy.get('[id^="chakra-modal-"] button.chakra-button')
-            .should("not.be.disabled")
+          // Targeting the specific "Submit" button within the modal's footer
+          cy.get("footer.chakra-modal__footer button.chakra-button")
+            .contains("Submit")
             .click();
 
           // Verify that the modal is closed and the page is redirected
-          cy.url().should("not.eq", "CurrentPageURL"); // Update with the correct URL check
+          cy.url().should("not.eq", "https://staging-rnm.vercel.app/data");
         } else {
           // If the error message exists, you can handle it here
           cy.get("#field-\\:r1v\\:-feedback").should("be.visible");
