@@ -21,13 +21,11 @@ describe("Home Page Tests", () => {
     cy.get("input.chakra-input.css-1suygoc")
       .should("be.visible")
       .type("https://support-en.wd.com/app/answers/detailweb/a_id/49944");
+    cy.wait(2000);
 
-    // Check that the submit button is now enabled
-    cy.get("button.chakra-button.bg-[#3182CE][disabled]").should(
-      "not.be.disabled"
-    );
-
-    // Click the submit button
-    cy.get("button.chakra-button.bg-[#3182CE]").click();
+    // Find the button containing 'Next' and ensure it becomes enabled
+    cy.get('button:has(p:contains("Next")):not([disabled])')
+      .should("be.visible")
+      .click();
   });
 });
