@@ -24,8 +24,16 @@ describe("Home Page Tests", () => {
     cy.wait(2000);
 
     // Find the button containing 'Next' and ensure it becomes enabled
-    cy.get('button:has(p:contains("Next")):not([disabled])')
-      .should("be.visible")
-      .click();
+    cy.get('button:has(p:contains("Next")):not([disabled])').click();
+
+    cy.wait(10000);
+
+    // Wait for the loading indicator to disappear
+    cy.get(".chakra-spinner.css-jmuyva", { timeout: 10000 }).should(
+      "not.exist"
+    );
+
+    // Verify redirection
+    cy.url().should("eq", "https://staging-rnm.vercel.app/data");
   });
 });
