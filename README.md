@@ -65,7 +65,14 @@ Before running the tests, ensure you have the following installed:
 
 - **Test: Ensure the input field can only be submitted when filled**
 
-  Checks that the submit button remains disabled until the input field is filled, and then ensures the button can be clicked.
+  - Checks that the submit button remains disabled until the input field is filled, and then ensures the button can be clicked.
+
+  - Checks for URL redirect on successful form submission
+
+  - Try to submit the release note and check for three conditions;
+    - If an access key is required(usually for first time users)
+    - If there's an error message
+    - If submission is successful then check for successful redirect
 
 ## Common Issues
 
@@ -76,3 +83,7 @@ Before running the tests, ensure you have the following installed:
 - **Timeout Errors**
 
   If tests are timing out, increase the wait time or check for delays in rendering elements.
+
+- **Incorrect Access Key**
+
+  Test will only proceed after correct access keys have been provided
