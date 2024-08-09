@@ -62,8 +62,13 @@ describe("Home Page Tests", () => {
             .contains("Submit")
             .click();
 
+          cy.wait("5000");
+
+          // Check if there are no error after submission
+          cy.get("#field-:r1j:-feedback").should("not.be.visible");
+
           // Verify that the modal is closed and the page is redirected
-          cy.url().should("not.eq", "https://staging-rnm.vercel.app/data");
+          cy.get("#field-:r1j:-feedback").should("be.visible");
         } else {
           // If the error message exists, you can handle it here
           cy.get("#field-\\:r1v\\:-feedback").should("be.visible");
